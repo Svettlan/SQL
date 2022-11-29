@@ -86,5 +86,3 @@ where HireDate like ('_____10%');
 select LastName,min(HireDate)
 from employees;
 
-select *
-from employees
