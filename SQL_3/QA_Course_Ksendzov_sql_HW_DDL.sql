@@ -1,14 +1,14 @@
 --DDL
-
+=====================================================================
 --1.Создать таблицу employees
 -- id. serial,  primary key,
 -- employee_name. Varchar(50), not null
-
+=====================================================================
 create table employees(
 	id serial  primary key,
 	employee_name Varchar(50) not null
 );
-
+=====================================================================
 --Наполнить таблицу employee 70 строками.
 insert into employees(employee_name)
 	values ('Ivan'),
@@ -81,10 +81,10 @@ insert into employees(employee_name)
 		   ('Valeria'),
 		   ('Varvara'),
 		   ('Vera')
-	
+==========================================================================	
 	--УДАЛИТЬ ТАБЛИЦУ
 		   drop table employees
-		   
+==========================================================================		   
 --Создать таблицу salary
 -- id. Serial  primary key,
 -- monthly_salary. Int, not null
@@ -93,7 +93,7 @@ insert into employees(employee_name)
 		id Serial  primary key,
 		monthly_salary Int not null
 		);
-	
+=========================================================================	
 	--Наполнить таблицу salary 15 строками
 insert into salary(monthly_salary)
 	values (1000),
@@ -112,7 +112,7 @@ insert into salary(monthly_salary)
 		   (2300),
 		   (2400),
 		   (2500)
-		   
+========================================================================		   
 --Создать таблицу employee_salary
 --- id. Serial  primary key,
 --- employee_id. Int, not null, unique
@@ -123,7 +123,7 @@ create table employee_salary(
 		employee_id Int not null unique,
 		salary_id Int not null
 		);
-	
+=======================================================================	
 --Наполнить таблицу employee_salary 40 строками:
 -- в 10 строк из 40 вставить несуществующие employee_id
 
@@ -168,9 +168,9 @@ insert into employee_salary(employee_id,salary_id)
 		   (84,10),
 		   (85,1),
 		   (101,2)
-		
+===================================================================		
 	drop table 	 employee_salary
-	
+===================================================================	
 --Создать таблицу roles
 --- id. Serial  primary key,
 --- role_name. int, not null, unique
@@ -179,18 +179,18 @@ create table roles(
 	id Serial primary key,
 	role_name int not null unique
 );
-
+===================================================================
 select * from employees;
 select * from salary;
 select * from employee_salary;
 select * from roles;
 select * from roles_employee
-
+===================================================================
 --Поменять тип столба role_name с int на varchar(30)
 
 alter table  roles
 alter column role_name type varchar(30);
-
+===================================================================
 --Наполнить таблицу roles 20 строками:	
 insert into roles(role_name)
 	values ('Junior Python developer'),
@@ -214,7 +214,7 @@ insert into roles(role_name)
 		  ('Middle Automation QA engineer'),
 		  ('Senior Automation QA engineer')
 
-		 
+===================================================================		 
 --Создать таблицу roles_employee
 --- id. Serial  primary key,
 --- employee_id. Int, not null, unique (внешний ключ для таблицы employees, поле id)
@@ -230,11 +230,11 @@ create table roles_employee(
 		references roles(id)
 );
 
-
+========================================================================
 
 --УДАЛИТЬ ТАБЛИЦУ
 drop table roles_employee
-
+========================================================================
 --Наполнить таблицу roles_employee 40 строками
 insert into roles_employee(employee_id,role_id)
 		values	 (7,2),
