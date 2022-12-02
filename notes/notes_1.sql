@@ -72,16 +72,6 @@ UNION                             --подразумеват только уни
 select FirstName from employees;
 
 ================================================================================
---ПОДЗАПРОСЫ
-
-select * from (
-select FirstName,LastName from customers -- подзапрос
-UNION                             
-select FirstName,LastName from employees)
-as t
-where FirstName='Aaron' ;           --условие
-
-=================================================================================
 -- EXCEPT
 
 select FirstName from customers 
@@ -96,3 +86,24 @@ INTERSECT                          --выводит данные, которые
 select FirstName from employees;
 
 =================================================================================
+-ПОДЗАПРОСЫ
+
+select * from (
+select FirstName,LastName from customers -- подзапрос
+UNION                             
+select FirstName,LastName from employees)
+as t
+where FirstName='Aaron' ;           --условие
+
+-- Посчитать для каждого клиента количество продаж подзапросом
+-- Вывести фамилию, имя, количество продаж
+
+select CustomerId, FirstName, LastName, (
+select count(*) from sales )         --Запрос без корреляции
+from customers;
+
+select CustomerId, FirstName, LastName, (
+select count(*) from sales 
+where sales.CustomerId=customers.CustomerId ) --Условие корреляции- условие связи с таблицами
+as count_sales
+from customers
