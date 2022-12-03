@@ -248,3 +248,22 @@ join salary as s on s.id=es.salary_id
 where s.monthly_salary >1700 and s.monthly_salary<2300
 order by s.monthly_salary asc
 =========================================================================
+--31. Вывести имена, должности и ЗП всех специалистов по возрастанию у специалистов у которых ЗП меньше 2300
+select  e.employee_name,r.role_name,s.monthly_salary
+from employees as e join roles_employee as re on e.id=re.employee_id
+join roles as r on r.id =re.role_id
+join employee_salary  as es on e.id=es.employee_id
+join salary as s on s.id=es.salary_id 
+where s.monthly_salary<2300
+order by s.monthly_salary asc
+==========================================================================
+-- 32. Вывести имена, должности и ЗП всех специалистов по возрастанию у специалистов у которых ЗП равна 1100, 1500, 2000
+select  e.employee_name,r.role_name,s.monthly_salary
+from employees as e join roles_employee as re on e.id=re.employee_id
+join roles as r on r.id =re.role_id
+join employee_salary  as es on e.id=es.employee_id
+join salary as s on s.id=es.salary_id 
+where s.monthly_salary in (1100,1500,2000)
+order by s.monthly_salary asc
+
+===========================================================================
