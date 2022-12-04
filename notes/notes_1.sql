@@ -44,7 +44,7 @@ rollback; --Откатить обратно изменения
 ============================================================================
 --Объединение таблиц
 
- UNION; --объединение по вертикали
+ UNION; --объединение по вертикали / условия: совпадение количества столбцов и совпадение типов данных
          ALL     -- полный
          DISTINCT --исключаюший дубликаты
  ПОДЗАПРОСЫ
@@ -106,4 +106,65 @@ select CustomerId, FirstName, LastName, (
 select count(*) from sales 
 where sales.CustomerId=customers.CustomerId ) --Условие корреляции- условие связи с таблицами
 as count_sales
-from customers
+from customers;
+
+=============================================
+-- Найти цены тел apple, которые больше средней цены телефонов samsung
+
+select * from phones_apple       -- вариант подзапроса
+where price>(select avg(price) from phones_samsung);
+=======================
+-- Найти цены тел apple, которые равны ценам телефонов samsung
+
+select * from phones_apple       
+where price in (select price from phones_samsung);
+======================
+-- Найти цены тел apple, которые не равны ценам телефонов samsung
+
+select * from phones_apple     
+where price not in (select price from phones_samsung);
+======================
+-- Найти тел.samsung, цены которых меньше самой маленькой цены apple, при условии цена apple <1000
+
+select * from phones_samsung     
+where price < all (select price from phones_apple where price <1000 ); -- меньше минимального
+======================
+-- Найти тел.samsung, цены которых больше максимальной цены apple, при условии цена apple <1000
+
+select * from phones_samsung     
+where price > all (select price from phones_apple where price <1000 ); --  больше максимальной 
+=======================
+-- Найти тел.samsung, цены которых никак не равны ценам apple дешевле 1000
+
+select * from phones_samsung     
+where price <> all (select price from phones_apple where price <1000 );
+========================
+-- Найти тел.samsung, цены которых меньше максимальной цены apple дешевле 1000
+
+select * from phones_samsung     
+where price < any (select price from phones_apple where price <1000 ); --меньше максимального
+========================
+-- Найти тел.samsung, цены которых больше минимальной цены apple дешевле 1000
+
+select * from phones_samsung     
+where price > any (select price from phones_apple where price <1000 ); --больше минимального
+========================
+--Аналогично оператору in
+
+select * from phones_samsung     
+where price = any (select price from phones_apple where price <1000 );
+========================
+--декартово произведение
+
+select * from phones_samsung     
+where price <> any (select price from phones_apple where price <1000 );
+===============================================================================
+
+
+
+
+
+
+
+
+
