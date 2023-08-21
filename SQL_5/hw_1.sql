@@ -40,7 +40,8 @@ where jobTitle = 'Sales Reps'
 ===========================================================================
 /*показать платежи в порядке убывания
 show payments in descending order*/
-select 
+select * from classicmodels.payments
+order by payments desc
 
 
 
