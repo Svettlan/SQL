@@ -48,14 +48,18 @@ order by payments desc
 ===========================================================================
 /*какой номер чека для платежа, сделанного 17 декабря 2004 г.
 what was the check# for the payment done on December 17th 2004*/
-
+select paymentnumber from classicmodels.payments
+where paymentDate = '2004-12-17'
+  
 
 
 
 ==========================================================================
 /*показать продуктовую линейку со словом «реалистичная» в описании
 show product line with the word 'realistic' in the description*/
-
+select distinct ProductLines
+from classicmodels.product
+where   productline like  '%realistic%'
 
 
 ==========================================================================
