@@ -26,7 +26,7 @@ where creditlimit > 200000
 /*кто президент компании?
 who is the president of the company?*/
 select * from classicmodels.employees
-  where 
+where jobTitl is president
 
 
 =========================================================================
