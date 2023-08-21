@@ -7,9 +7,9 @@ where country = 'Australia';
 =========================================================================
 /*------------показать имя и фамилию клиентов в Мельбурне --------------
 ----------show First and Last name of customers in Melbourne ----------*/
-select Firstname and Lastnam 
-from classicmodels.customers
-where city in
+select Firstname and Lastname 
+from classicmodels.custome
+where city in Melbourne
 
 
 
@@ -17,14 +17,16 @@ where city in
 /*показать всех клиентов с кредитным лимитом более 200 000 долларов США
 show all customers with Credit Limit over $200,000*/
 
-
+select * from classicmodels.customers 
+where creditlimit > 200000  
 
 
 
 ==========================================================================
 /*кто президент компании?
 who is the president of the company?*/
-
+select * from classicmodels.employees
+  where 
 
 
 =========================================================================
