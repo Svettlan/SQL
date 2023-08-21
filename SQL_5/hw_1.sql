@@ -9,7 +9,7 @@ where country = 'Australia';
 ----------show First and Last name of customers in Melbourne ----------*/
 select Firstname and Lastname 
 from classicmodels.custome
-where city in Melbourne
+where city = 'Melbourne'
 
 
 
@@ -26,19 +26,21 @@ where creditlimit > 200000
 /*кто президент компании?
 who is the president of the company?*/
 select * from classicmodels.employees
-where jobTitl is president
+where jobTitle = 'president'
 
 
 =========================================================================
 /*сколько торговых представителей в компании?
 how many Sales Reps are in the company?*/
-
+select count(*) 
+from classicmodels.employees
+where jobTitle = 'Sales Reps'
 
 
 ===========================================================================
 /*показать платежи в порядке убывания
 show payments in descending order*/
-
+select 
 
 
 
