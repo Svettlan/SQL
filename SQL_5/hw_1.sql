@@ -57,7 +57,7 @@ where paymentDate = '2004-12-17'
 ==========================================================================
 /*показать продуктовую линейку со словом «реалистичная» в описании
 show product line with the word 'realistic' in the description*/
-select distinct ProductLines
+select * ProductLines
 from classicmodels.product
 where   productline like  '%realistic%'
 
@@ -66,7 +66,8 @@ where   productline like  '%realistic%'
 /*показать название продукта для продавца "Unimax Art Galleries"
 show product name for vendor 'Unimax Art Galleries'*/
 
-
+select productName from classicmodel.products
+where vendor = 'Unimax Art Galleries'
 
 ==========================================================================
 
