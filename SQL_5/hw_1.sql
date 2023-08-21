@@ -7,7 +7,9 @@ where country = 'Australia';
 =========================================================================
 /*------------показать имя и фамилию клиентов в Мельбурне --------------
 ----------show First and Last name of customers in Melbourne ----------*/
-
+select Firstname and Lastnam 
+from classicmodels.customers
+where city in
 
 
 
