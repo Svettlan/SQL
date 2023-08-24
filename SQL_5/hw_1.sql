@@ -62,9 +62,10 @@ where productVendor like 'Unimax Art Galleries';
 ==========================================================================
 /*какой номер клиента для наибольшей суммы платежа
 what is the customer number for the highest amount of payment*/
-select customerId 
-from classicmodels.customer
-order by amount desc
+select customerNumber 
+from classicmodels.customers
+order by  creditLimit desc
+limit 1
 
 
 
