@@ -1,2 +1,2 @@
 ## Портфолио задач по SQL с решениями 
-### RedRover.school
+### RedRover.school_HW_2
