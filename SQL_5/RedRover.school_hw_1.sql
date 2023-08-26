@@ -30,7 +30,7 @@ where jobTitle = 'President';
 how many Sales Reps are in the company?*/
 select count(*) 
 from classicmodels.employees
-where jobTitle = 'Sales Reps';
+where jobTitle like 'Sales%Rep%';
 
 ===========================================================================
 /*показать платежи в порядке убывания
@@ -42,31 +42,32 @@ order by amount desc;
 ===========================================================================
 /*какой номер чека для платежа, сделанного 17 декабря 2004 г.
 what was the check# for the payment done on December 17th 2004*/
-select checkNumber 
+select checkNumber, paymentDate
 from classicmodels.payments
 where paymentDate = '2004-12-17';
 
 ==========================================================================
 /*показать продуктовую линейку со словом «реалистичная» в описании
 show product line with the word 'realistic' in the description*/
-select  productLine
-from classicmodels.products
-where   productline like  'realistic';
+select  productLine, textDescription
+from classicmodels.productlines
+where   textDescription like  '%realistic%';
 
 ==========================================================================
 /*показать название продукта для продавца "Unimax Art Galleries"
 show product name for vendor 'Unimax Art Galleries'*/
-select productName from classicmodels.products
-where productVendor like 'Unimax Art Galleries';
+select productName, productVendor
+ from classicmodels.productlines
+where productVendor ='Unimax Art Galleries';
+
 
 ==========================================================================
 /*какой номер клиента для наибольшей суммы платежа
 what is the customer number for the highest amount of payment*/
-select customerNumber 
-from classicmodels.customers
-order by  creditLimit desc
-limit 1
-
+select customerNumber, amount 
+from classicmodels.payments
+order by  amount desc
+limit 1;
 
 
 
