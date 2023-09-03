@@ -40,7 +40,7 @@ where HireDate like '_____05%';
 -- !!!!!!!!
 select CONCAT (LastName,' ' , FirstName) as Сотрудник, HireDate
 from chinook.employee
-where DATE_FORMAT (HireDate, '%W %D %05 %Y');
+where DATE_FORMAT (HireDate, '%c') = '5';
 
 /*Покажите фамилии и имена сотрудников, занимающих должность менеджера по продажам и ИТ менеджера. Решите задание двумя способами: 
 используя оператор IN
