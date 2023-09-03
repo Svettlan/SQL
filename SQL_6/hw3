@@ -2,7 +2,8 @@
 
 -- -------------------- Lesson #3 SQL = DDL + DQL + DML -------------------
 
--- Data Definition Language (DDL): CREATE TABLE, ALTER TABLE, DROP TABLE		
+-- Data Definition Language (DDL): CREATE TABLE, ALTER TABLE, DROP TABLE	
+Язык определения данных (DDL): CREATE TABLE, ALTER TABLE, DROP TABLE.
 	
     -- CREATE DATABASE or SCHEMA 
 	CREATE DATABASE database_name;
