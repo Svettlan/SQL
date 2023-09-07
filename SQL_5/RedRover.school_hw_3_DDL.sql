@@ -1,0 +1,9 @@
+-- 1. Add column 'country' to dept table in mywork database
+--     Добавьте столбец «страна» в таблицу отделов в базе данных mywork.
+-- 	2. Rename column 'loc' to 'city'
+--     Переименуйте столбец «loc» в «city».
+-- 	3. Add three more departments: HR, Engineering, Marketing
+--     Добавьте еще три отдела: HR, Engineering, Marketing.
+-- 	4. Write sql statement to show which department is in Atlanta
+--     Save your work 
+--     Напишите оператор sql, чтобы показать, какой отдел находится в Атланте.
